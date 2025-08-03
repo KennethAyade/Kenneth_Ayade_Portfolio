@@ -55,7 +55,7 @@ const Hero = () => {
           {/* Main Heading */}
           <motion.div variants={itemVariants}>
             <motion.h1 
-              className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6"
+              className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight"
               initial={{ scale: 0.5 }}
               animate={{ scale: 1 }}
               transition={{ 
@@ -74,7 +74,7 @@ const Hero = () => {
 
           {/* Subtitle */}
           <motion.div variants={itemVariants}>
-            <h2 className="text-xl md:text-2xl lg:text-3xl text-gray-600 dark:text-gray-300 mb-8 font-light">
+            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-600 dark:text-gray-300 mb-8 font-light">
               Frontend Developer & 
               <span className="text-blue-600 dark:text-blue-400 font-medium"> UI/UX Enthusiast</span>
             </h2>
@@ -82,7 +82,7 @@ const Hero = () => {
 
           {/* Description */}
           <motion.div variants={itemVariants}>
-            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
               I create exceptional digital experiences that combine beautiful design with 
               robust functionality. Specializing in React.js, modern web technologies, 
               and user-centered development.
@@ -92,11 +92,11 @@ const Hero = () => {
           {/* CTA Buttons */}
           <motion.div 
             variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 px-4 sm:px-0"
           >
             <motion.button
               onClick={scrollToProjects}
-              className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold text-lg transition-colors duration-200 flex items-center gap-2 min-w-[200px] justify-center shadow-lg hover:shadow-xl"
+              className="w-full sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold text-lg transition-colors duration-200 flex items-center gap-2 min-w-[200px] justify-center shadow-lg hover:shadow-xl"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -106,7 +106,7 @@ const Hero = () => {
             
             <motion.button
               onClick={scrollToContact}
-              className="px-8 py-4 bg-white border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white rounded-lg font-semibold text-lg transition-all duration-200 flex items-center gap-2 min-w-[200px] justify-center shadow-lg hover:shadow-xl"
+              className="w-full sm:w-auto px-8 py-4 bg-white border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white rounded-lg font-semibold text-lg transition-all duration-200 flex items-center gap-2 min-w-[200px] justify-center shadow-lg hover:shadow-xl"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

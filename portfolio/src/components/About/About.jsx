@@ -99,7 +99,7 @@ const About = () => {
               </div>
 
               {/* Stats */}
-              <div className="grid grid-cols-3 gap-6 mt-8">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mt-8">
                 <div className="text-center p-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg border border-gray-100/50 dark:border-gray-700/50 shadow-lg">
                   <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">50+</div>
                   <div className="text-sm text-gray-600 dark:text-gray-400">Projects Completed</div>
