@@ -143,7 +143,7 @@ const Hero = () => {
             </motion.a>
             
             <motion.a
-              href="mailto:kenneth@example.com"
+              href="mailto:ayadekennethorland13@gmail.com"
               className="p-3 rounded-full bg-white/80 backdrop-blur-sm border border-gray-200/50 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-white dark:hover:bg-gray-700 transition-all duration-200 shadow-lg hover:shadow-xl"
               whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.95 }}

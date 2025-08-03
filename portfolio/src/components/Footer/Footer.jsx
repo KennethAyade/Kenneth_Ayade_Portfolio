@@ -32,7 +32,7 @@ const Footer = () => {
     {
       name: 'Email',
       icon: <Mail size={20} />,
-      href: 'mailto:kenneth@example.com'
+      href: 'mailto:ayadekennethorland13@gmail.com'
     }
   ];
 
@@ -151,10 +151,10 @@ const Footer = () => {
             >
               <p>
                 <a 
-                  href="mailto:kenneth@example.com"
+                  href="mailto:ayadekennethorland13@gmail.com"
                   className="hover:text-white transition-colors duration-200"
                 >
-                  kenneth@example.com
+                  ayadekennethorland13@gmail.com
                 </a>
               </p>
               <p>Available for freelance projects</p>
