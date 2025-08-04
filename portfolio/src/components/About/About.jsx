@@ -52,8 +52,8 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="section-padding bg-gradient-to-br from-white via-slate-50/60 to-blue-50/40 dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="section-padding bg-section-alternate">
+      <div className="section-container">
         <motion.div
           ref={ref}
           variants={containerVariants}
@@ -61,82 +61,106 @@ const About = () => {
           animate={inView ? "visible" : "hidden"}
         >
           {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <motion.div variants={itemVariants} className="section-header">
+            <h2 className="section-title">
               About Me
             </h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-              Passionate frontend developer with a keen eye for design and a commitment to creating 
-              exceptional digital experiences that make a difference.
+            <div className="w-24 h-1.5 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-700 mx-auto mb-8 rounded-full"></div>
+            <p className="section-subtitle">
+              Dedicated IT professional and recent graduate from Cebu Institute of Technology University 
+              with hands-on experience in fullstack web development and WordPress solutions. Currently working 
+              as an App/Cloud Support Associate at Accenture, combining enterprise cloud expertise with 
+              development skills.
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left Content */}
             <motion.div variants={itemVariants}>
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-                Crafting Digital Excellence
-              </h3>
-              <div className="space-y-4 text-gray-600 dark:text-gray-400">
-                <p>
-                  With over 3 years of experience in frontend development, I specialize in creating 
-                  modern, responsive web applications that not only look great but also provide 
-                  exceptional user experiences. My journey in web development has been driven by 
-                  a passion for turning creative ideas into functional, beautiful digital solutions.
-                </p>
-                <p>
-                  I've had the privilege of working on diverse projects ranging from fintech platforms 
-                  to e-commerce solutions, each presenting unique challenges that have strengthened 
-                  my problem-solving skills and technical expertise. I believe in writing clean, 
-                  maintainable code and staying current with the latest industry trends and best practices.
-                </p>
-                <p>
-                  When I'm not coding, you'll find me exploring new design trends, contributing to 
-                  open-source projects, or learning about emerging technologies that can enhance 
-                  user experiences.
-                </p>
-              </div>
+              <div className="card-elevated p-8 lg:p-10">
+                <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-gradient">
+                  Building Digital Solutions End-to-End
+                </h3>
+                <div className="space-y-6 text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
+                  <p>
+                    As a dedicated fullstack developer and recent graduate from Cebu Institute of Technology 
+                    University, I bring a comprehensive skill set spanning both frontend and backend technologies. 
+                    Currently working at <span className="text-blue-600 dark:text-blue-400 font-semibold">Accenture as an App/Cloud Support Associate</span>, 
+                    I combine cloud infrastructure expertise with my development background to deliver robust solutions.
+                  </p>
+                  <p>
+                    My experience as Team Leader & Junior Web Developer at Creative Solutions, alongside my current role 
+                    at Accenture, has strengthened my ability to work across the full technology stack - from application 
+                    development to cloud infrastructure management. I specialize in WordPress site development, creating 
+                    custom themes and implementing tailored solutions for diverse client needs.
+                  </p>
+                  <p>
+                    My technical foundation includes modern frameworks like React.js and TypeScript, backend technologies 
+                    including Java Spring Boot, .NET C#, and Python, plus experience with legacy systems using COBOL. 
+                    Combined with my cloud support experience at Accenture, this diverse background allows me to adapt 
+                    to various project requirements and technology stacks while ensuring scalable, cloud-ready solutions.
+                  </p>
+                  <p>
+                    Currently serving as Project Lead for the Wheels On Go car rental application while maintaining 
+                    my professional growth at Accenture, I demonstrate strong leadership skills and the ability to 
+                    manage multiple responsibilities across different technology domains.
+                  </p>
+                </div>
 
-              {/* Stats */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mt-8">
-                <div className="text-center p-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg border border-gray-100/50 dark:border-gray-700/50 shadow-lg">
-                  <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">50+</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">Projects Completed</div>
-                </div>
-                <div className="text-center p-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg border border-gray-100/50 dark:border-gray-700/50 shadow-lg">
-                  <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">3+</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">Years Experience</div>
-                </div>
-                <div className="text-center p-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg border border-gray-100/50 dark:border-gray-700/50 shadow-lg">
-                  <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">100%</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">Client Satisfaction</div>
+                {/* Enhanced Stats */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-10">
+                  <motion.div 
+                    className="text-center p-6 card-blue hover:scale-105 transition-all duration-300"
+                    whileHover={{ y: -5 }}
+                  >
+                    <div className="text-3xl font-bold text-blue-600 mb-2">25+</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400 font-medium">Projects Completed</div>
+                  </motion.div>
+                  <motion.div 
+                    className="text-center p-6 card-blue hover:scale-105 transition-all duration-300"
+                    whileHover={{ y: -5 }}
+                  >
+                    <div className="text-3xl font-bold text-blue-600 mb-2">2+</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400 font-medium">Years Experience</div>
+                  </motion.div>
+                  <motion.div 
+                    className="text-center p-6 card-blue hover:scale-105 transition-all duration-300"
+                    whileHover={{ y: -5 }}
+                  >
+                    <div className="text-3xl font-bold text-blue-600 mb-2">100%</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400 font-medium">Client Satisfaction</div>
+                  </motion.div>
                 </div>
               </div>
             </motion.div>
 
-            {/* Right Content - Highlights */}
+            {/* Right Content - Enhanced Highlights */}
             <motion.div variants={itemVariants}>
-              <div className="grid gap-6">
+              <div className="space-y-6">
                 {highlights.map((highlight, index) => (
                   <motion.div
                     key={index}
                     variants={itemVariants}
-                    className="flex items-start space-x-4 p-6 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg border border-gray-100/50 dark:border-gray-700/50 hover:shadow-lg transition-shadow duration-300 shadow-md"
+                    className="group card-elevated p-8 hover-lift hover-glow"
                     whileHover={{ scale: 1.02 }}
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
                   >
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center text-blue-600 dark:text-blue-400">
-                        {highlight.icon}
+                    <div className="flex items-start space-x-6">
+                      <div className="flex-shrink-0">
+                        <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center text-white shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
+                          {highlight.icon}
+                        </div>
                       </div>
-                    </div>
-                    <div>
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                        {highlight.title}
-                      </h4>
-                      <p className="text-gray-600 dark:text-gray-400">
-                        {highlight.description}
-                      </p>
+                      <div className="flex-1">
+                        <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 transition-colors">
+                          {highlight.title}
+                        </h4>
+                        <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                          {highlight.description}
+                        </p>
+                      </div>
                     </div>
                   </motion.div>
                 ))}

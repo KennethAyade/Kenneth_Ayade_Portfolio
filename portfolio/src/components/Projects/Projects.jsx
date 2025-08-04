@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ExternalLink, Github, ArrowRight } from 'lucide-react';
+import { ExternalLink, Github, ArrowRight, X } from 'lucide-react';
 import { projects, projectCategories } from '../../data/projects';
 
 const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
@@ -14,6 +16,18 @@ const Projects = () => {
   const filteredProjects = selectedCategory === 'All' 
     ? projects 
     : projects.filter(project => project.category === selectedCategory);
+
+  const openProjectModal = (project) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+  };
+
+  const closeProjectModal = () => {
+    setSelectedProject(null);
+    setIsModalOpen(false);
+    document.body.style.overflow = 'unset'; // Restore scrolling
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -34,101 +48,109 @@ const Projects = () => {
     }
   };
 
-  const ProjectCard = ({ project }) => (
+  const ProjectCard = ({ project, onOpenModal }) => (
     <motion.div
       layout
       variants={itemVariants}
-      className="bg-white/90 backdrop-blur-sm border border-gray-100/50 dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300"
-      whileHover={{ y: -5 }}
+      className="group card-elevated overflow-hidden hover-lift hover-glow flex flex-col"
+      whileHover={{ y: -8 }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
     >
-      {/* Project Image Placeholder */}
-      <div className="h-48 bg-gradient-to-br from-blue-500 to-purple-600 relative overflow-hidden">
-        <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="text-white text-center">
-            <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-            <p className="text-sm opacity-90">{project.category}</p>
+      {/* Enhanced Project Image */}
+      <div className="h-56 bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent flex items-end">
+          <div className="text-white p-6 w-full">
+            <h3 className="text-xl font-bold mb-1">{project.title}</h3>
+            <p className="text-blue-100 text-sm">{project.category}</p>
           </div>
         </div>
-        <div className="absolute top-4 right-4 flex space-x-2 opacity-0 hover:opacity-100 transition-opacity duration-200">
+        <div className="absolute top-4 right-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
           <motion.a
             href={project.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 bg-white bg-opacity-20 rounded-full backdrop-blur-sm hover:bg-opacity-30 transition-all"
+            className="p-3 bg-white/20 rounded-xl backdrop-blur-sm hover:bg-white/30 transition-all shadow-lg"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >
-            <ExternalLink size={16} className="text-white" />
+            <ExternalLink size={18} className="text-white" />
           </motion.a>
           {project.githubUrl !== '#' && (
             <motion.a
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 bg-white bg-opacity-20 rounded-full backdrop-blur-sm hover:bg-opacity-30 transition-all"
+              className="p-3 bg-white/20 rounded-xl backdrop-blur-sm hover:bg-white/30 transition-all shadow-lg"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Github size={16} className="text-white" />
+              <Github size={18} className="text-white" />
             </motion.a>
           )}
         </div>
+        
+        {/* Decorative elements */}
+        <div className="absolute top-6 left-6 w-3 h-3 bg-white/30 rounded-full"></div>
+        <div className="absolute top-12 left-8 w-2 h-2 bg-white/20 rounded-full"></div>
+        <div className="absolute bottom-20 right-8 w-4 h-4 bg-white/10 rounded-full"></div>
       </div>
 
-      <div className="p-6">
-        <div className="flex items-center justify-between mb-3">
-          <span className="inline-block px-3 py-1 text-xs font-semibold text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900 rounded-full">
+      <div className="p-8 flex flex-col flex-1">
+        <div className="flex items-center justify-between mb-4">
+          <span className="inline-block px-4 py-2 text-xs font-bold text-blue-700 bg-blue-100 rounded-full">
             {project.category}
           </span>
-          <span className="text-xs text-gray-500 dark:text-gray-400">{project.year}</span>
+          <span className="text-xs text-gray-500 dark:text-gray-400 font-medium bg-gray-100 px-3 py-1 rounded-full">{project.year}</span>
         </div>
         
-        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-blue-600 transition-colors">
           {project.title}
         </h3>
         
-        <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">
+        <p className="text-gray-600 dark:text-gray-400 mb-6 line-clamp-3 leading-relaxed flex-1">
           {project.description}
         </p>
 
-        {/* Technologies */}
-        <div className="flex flex-wrap gap-2 mb-4">
+        {/* Enhanced Technologies */}
+        <div className="flex flex-wrap gap-2 mb-6">
           {project.technologies.slice(0, 4).map((tech, index) => (
             <span
               key={index}
-              className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded"
+              className="px-3 py-1.5 text-xs bg-blue-50 text-blue-700 rounded-lg font-medium border border-blue-100"
             >
               {tech}
             </span>
           ))}
           {project.technologies.length > 4 && (
-            <span className="px-2 py-1 text-xs text-gray-500 dark:text-gray-400">
+            <span className="px-3 py-1.5 text-xs text-blue-600 bg-blue-50 rounded-lg font-medium">
               +{project.technologies.length - 4} more
             </span>
           )}
         </div>
 
-        {/* Action Buttons */}
-        <div className="flex space-x-3">
+        {/* Enhanced Action Buttons - Now at bottom */}
+        <div className="flex space-x-3 mt-auto">
           <motion.a
             href={project.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium text-center text-sm transition-colors flex items-center justify-center gap-2"
+            className="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold text-center text-sm transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl group/btn"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            View Live <ExternalLink size={14} />
+            View Live 
+            <ExternalLink size={16} className="group-hover/btn:translate-x-1 transition-transform" />
           </motion.a>
           <motion.button
-            className="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg font-medium text-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors flex items-center gap-2"
+            onClick={() => onOpenModal(project)}
+            className="px-6 py-3 border-2 border-blue-600 text-blue-600 rounded-xl font-semibold text-sm hover:bg-blue-600 hover:text-white transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl group/btn"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            Details <ArrowRight size={14} />
+            Details 
+            <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
           </motion.button>
         </div>
       </div>
@@ -136,8 +158,8 @@ const Projects = () => {
   );
 
   return (
-    <section id="projects" className="section-padding bg-gradient-to-br from-slate-50/80 via-blue-50/60 to-indigo-50/80 dark:bg-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="section-padding bg-hero">
+      <div className="section-container">
         <motion.div
           ref={ref}
           variants={containerVariants}
@@ -145,26 +167,26 @@ const Projects = () => {
           animate={inView ? "visible" : "hidden"}
         >
           {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Featured Projects
+          <motion.div variants={itemVariants} className="section-header">
+            <h2 className="section-title">
+              WordPress Development Portfolio
             </h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-8">
-              A showcase of my recent work, featuring modern web applications built with 
-              cutting-edge technologies and best practices.
+            <div className="w-24 h-1.5 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-700 mx-auto mb-8 rounded-full"></div>
+            <p className="section-subtitle mb-12">
+              A showcase of professional WordPress websites built with custom themes, advanced functionality, 
+              and optimized performance. Each project demonstrates expertise in WordPress development and client-focused solutions.
             </p>
 
-            {/* Filter Buttons */}
-            <div className="flex flex-wrap justify-center gap-3">
+            {/* Enhanced Filter Buttons */}
+            <div className="flex flex-wrap justify-center gap-4">
               {projectCategories.map((category) => (
                 <motion.button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 rounded-full font-medium text-sm transition-all duration-200 ${
+                  className={`px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300 ${
                     selectedCategory === category
-                      ? 'bg-blue-600 text-white shadow-lg'
-                      : 'bg-white/80 backdrop-blur-sm border border-gray-200/50 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-600 shadow-md'
+                      ? 'bg-blue-600 text-white shadow-lg shadow-blue-200'
+                      : 'bg-white/90 backdrop-blur-sm border border-blue-100 text-blue-700 hover:bg-blue-50 hover:border-blue-200 shadow-md hover:shadow-lg'
                   }`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -175,37 +197,173 @@ const Projects = () => {
             </div>
           </motion.div>
 
-          {/* Projects Grid */}
+          {/* Enhanced Projects Grid */}
           <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <AnimatePresence mode="popLayout">
               {filteredProjects.map((project) => (
-                <ProjectCard key={project.id} project={project} />
+                <ProjectCard key={project.id} project={project} onOpenModal={openProjectModal} />
               ))}
             </AnimatePresence>
           </motion.div>
 
-          {/* Call to Action */}
+          {/* Enhanced Call to Action */}
           <motion.div 
             variants={itemVariants}
-            className="text-center mt-16"
+            className="text-center mt-20"
           >
-            <p className="text-gray-600 dark:text-gray-400 mb-6">
-              Interested in working together? Let's create something amazing!
-            </p>
-            <motion.button
-              onClick={() => {
-                const element = document.querySelector('#contact');
-                if (element) element.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors duration-200 shadow-lg hover:shadow-xl"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Start a Project
-            </motion.button>
+            <div className="card-blue p-12 max-w-4xl mx-auto">
+              <h3 className="text-3xl font-bold text-gray-900 mb-4">Ready to Start Your Project?</h3>
+              <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                Interested in working together? Let's discuss your project and create 
+                something amazing with WordPress or any modern technology stack!
+              </p>
+              <motion.button
+                onClick={() => {
+                  const element = document.querySelector('#contact');
+                  if (element) element.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="btn-primary"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Start a Project
+              </motion.button>
+            </div>
           </motion.div>
         </motion.div>
       </div>
+
+      {/* Project Details Modal */}
+      <AnimatePresence>
+        {isModalOpen && selectedProject && (
+          <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={closeProjectModal}
+          >
+            <motion.div
+              className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Modal Header */}
+              <div className="relative p-8 bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 text-white rounded-t-3xl">
+                <button
+                  onClick={closeProjectModal}
+                  className="absolute top-6 right-6 p-2 bg-white/20 hover:bg-white/30 rounded-full transition-all duration-300"
+                >
+                  <X size={24} />
+                </button>
+                
+                <div className="mb-4">
+                  <span className="inline-block px-4 py-2 bg-white/20 rounded-full text-sm font-semibold mb-4">
+                    {selectedProject.category}
+                  </span>
+                </div>
+                
+                <h2 className="text-3xl font-bold mb-4">{selectedProject.title}</h2>
+                <p className="text-blue-100 text-lg leading-relaxed">
+                  {selectedProject.longDescription || selectedProject.description}
+                </p>
+                
+                <div className="flex space-x-4 mt-6">
+                  <a
+                    href={selectedProject.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-6 py-3 bg-white text-blue-600 rounded-xl font-semibold hover:bg-blue-50 transition-all duration-300 shadow-lg"
+                  >
+                    <ExternalLink size={18} className="mr-2" />
+                    View Live
+                  </a>
+                  {selectedProject.githubUrl !== '#' && (
+                    <a
+                      href={selectedProject.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center px-6 py-3 bg-white/20 border border-white/30 text-white rounded-xl font-semibold hover:bg-white/30 transition-all duration-300"
+                    >
+                      <Github size={18} className="mr-2" />
+                      View Code
+                    </a>
+                  )}
+                </div>
+              </div>
+
+              {/* Modal Content */}
+              <div className="p-8">
+                {/* Technologies */}
+                <div className="mb-8">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Technologies Used</h3>
+                  <div className="flex flex-wrap gap-3">
+                    {selectedProject.technologies.map((tech, index) => (
+                      <span
+                        key={index}
+                        className="px-4 py-2 bg-blue-50 text-blue-700 rounded-lg font-medium border border-blue-100"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Features */}
+                {selectedProject.features && (
+                  <div className="mb-8">
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Key Features</h3>
+                    <ul className="space-y-2">
+                      {selectedProject.features.map((feature, index) => (
+                        <li key={index} className="flex items-start space-x-3">
+                          <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                          <span className="text-gray-600 dark:text-gray-400">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* Challenges & Results */}
+                <div className="grid md:grid-cols-2 gap-8">
+                  {selectedProject.challenges && (
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Challenges</h3>
+                      <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        {selectedProject.challenges}
+                      </p>
+                    </div>
+                  )}
+
+                  {selectedProject.results && (
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Results</h3>
+                      <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        {selectedProject.results}
+                      </p>
+                    </div>
+                  )}
+                </div>
+
+                {/* Project Status */}
+                <div className="mt-8 p-6 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h4 className="font-semibold text-gray-900 dark:text-white">Project Status</h4>
+                      <p className="text-gray-600 dark:text-gray-400">Year: {selectedProject.year}</p>
+                    </div>
+                    <span className="px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-semibold">
+                      {selectedProject.status || 'Completed'}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

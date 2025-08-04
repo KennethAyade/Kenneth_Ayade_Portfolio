@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDown, Github, Linkedin, Mail, ExternalLink } from 'lucide-react';
+import { ArrowDown, Github, Linkedin, Mail, ExternalLink, Instagram, Facebook } from 'lucide-react';
 
 const Hero = () => {
   const scrollToProjects = () => {
@@ -37,27 +37,44 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 bg-gradient-to-br from-white via-blue-50/40 to-indigo-50/60">
-      {/* Background Elements */}
+    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 bg-hero">
+      {/* Modern Background Elements */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200/60 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-        <div className="absolute top-20 right-10 w-72 h-72 bg-purple-200/60 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-        <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-200/60 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+        {/* Geometric shapes */}
+        <div className="absolute top-20 left-10 w-96 h-96 bg-blue-100/30 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float"></div>
+        <div className="absolute top-20 right-10 w-96 h-96 bg-blue-200/40 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute -bottom-8 left-20 w-96 h-96 bg-blue-50/50 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float" style={{ animationDelay: '4s' }}></div>
+        
+        {/* Grid pattern */}
+        <div className="absolute inset-0 bg-pattern opacity-40"></div>
+        
+        {/* Floating elements */}
+        <div className="absolute top-1/4 left-16 w-8 h-8 bg-blue-500/20 rounded-lg animate-float opacity-60" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/3 right-20 w-6 h-6 bg-blue-600/30 rounded-full animate-float opacity-50" style={{ animationDelay: '3s' }}></div>
+        <div className="absolute bottom-1/3 left-1/4 w-4 h-4 bg-blue-400/40 rounded-sm animate-float opacity-70" style={{ animationDelay: '5s' }}></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="section-container">
         <motion.div
           className="text-center"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
+          {/* Professional Badge */}
+          <motion.div variants={itemVariants} className="mb-8">
+            <div className="inline-flex items-center px-6 py-3 bg-white/80 backdrop-blur-sm border border-blue-100 rounded-full shadow-lg">
+              <div className="w-3 h-3 bg-green-500 rounded-full mr-3 animate-pulse-blue"></div>
+              <span className="text-blue-700 font-medium text-sm">Available for new opportunities</span>
+            </div>
+          </motion.div>
+
           {/* Main Heading */}
           <motion.div variants={itemVariants}>
             <motion.h1 
-              className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight"
-              initial={{ scale: 0.5 }}
-              animate={{ scale: 1 }}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight"
+              initial={{ scale: 0.5, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
               transition={{ 
                 type: "spring", 
                 stiffness: 260, 
@@ -66,151 +83,148 @@ const Hero = () => {
               }}
             >
               Hi, I'm{' '}
-              <span className="gradient-text animate-glow">
+              <span className="gradient-text block mt-2">
                 Kenneth Ayade
               </span>
             </motion.h1>
           </motion.div>
 
-          {/* Subtitle */}
+          {/* Enhanced Subtitle */}
           <motion.div variants={itemVariants}>
-            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-600 dark:text-gray-300 mb-8 font-light">
-              Frontend Developer & 
-              <span className="text-blue-600 dark:text-blue-400 font-medium"> UI/UX Enthusiast</span>
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-700 dark:text-gray-300 mb-4 font-light">
+              Fullstack Developer
             </h2>
+            <div className="flex flex-wrap justify-center items-center gap-2 mb-8">
+              <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">WordPress Specialist</span>
+              <span className="text-gray-400">•</span>
+              <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">React Developer</span>
+              <span className="text-gray-400">•</span>
+              <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Team Leader</span>
+              <span className="text-gray-400">•</span>
+              <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Accenture Associate</span>
+            </div>
           </motion.div>
 
-          {/* Description */}
+          {/* Enhanced Description */}
           <motion.div variants={itemVariants}>
-            <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
-              I create exceptional digital experiences that combine beautiful design with 
-              robust functionality. Specializing in React.js, modern web technologies, 
-              and user-centered development.
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-12 max-w-4xl mx-auto leading-relaxed px-4 sm:px-0">
+              I build comprehensive web solutions from frontend to backend, specializing in{' '}
+              <span className="text-blue-600 font-semibold">WordPress development</span> and React applications. 
+              Currently working as an{' '}
+              <span className="text-blue-600 font-semibold">App/Cloud Support Associate at Accenture</span>, 
+              I combine enterprise cloud expertise with modern full-stack technologies including{' '}
+              <span className="text-blue-600 font-semibold">Java Spring Boot</span>,{' '}
+              <span className="text-blue-600 font-semibold">.NET C#</span>, and{' '}
+              <span className="text-blue-600 font-semibold">Python</span>.
             </p>
           </motion.div>
 
-          {/* CTA Buttons */}
+          {/* Enhanced CTA Buttons */}
           <motion.div 
             variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 px-4 sm:px-0"
+            className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 px-4 sm:px-0"
           >
             <motion.button
               onClick={scrollToProjects}
-              className="w-full sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold text-lg transition-colors duration-200 flex items-center gap-2 min-w-[200px] justify-center shadow-lg hover:shadow-xl"
+              className="btn-primary w-full sm:w-auto min-w-[220px] group"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              View My Work
-              <ExternalLink size={20} />
+              <span className="flex items-center justify-center gap-3">
+                View My Portfolio
+                <ExternalLink size={20} className="group-hover:translate-x-1 transition-transform" />
+              </span>
             </motion.button>
             
             <motion.button
               onClick={scrollToContact}
-              className="w-full sm:w-auto px-8 py-4 bg-white border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white rounded-lg font-semibold text-lg transition-all duration-200 flex items-center gap-2 min-w-[200px] justify-center shadow-lg hover:shadow-xl"
+              className="btn-secondary w-full sm:w-auto min-w-[220px] group"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Get In Touch
-              <Mail size={20} />
+              <span className="flex items-center justify-center gap-3">
+                Let's Connect
+                <Mail size={20} className="group-hover:scale-110 transition-transform" />
+              </span>
             </motion.button>
           </motion.div>
 
-          {/* Social Links */}
+          {/* Professional Social Links */}
           <motion.div 
             variants={itemVariants}
-            className="flex justify-center space-x-6 mb-16"
+            className="flex justify-center space-x-4 mb-16"
           >
             <motion.a
-              href="https://github.com/kennethayade"
+              href="https://github.com/KennethAyade"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full bg-white/80 backdrop-blur-sm border border-gray-200/50 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-white dark:hover:bg-gray-700 transition-all duration-200 shadow-lg hover:shadow-xl"
-              whileHover={{ scale: 1.1, y: -2 }}
+              className="p-4 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-xl text-gray-600 dark:text-gray-400 hover:text-blue-600 hover:bg-blue-50 hover:border-blue-200 transition-all duration-300 shadow-lg hover:shadow-xl group"
+              whileHover={{ scale: 1.1, y: -4 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Github size={24} />
+              <Github size={24} className="group-hover:scale-110 transition-transform" />
             </motion.a>
             
             <motion.a
-              href="https://linkedin.com/in/kennethayade"
+              href="https://www.linkedin.com/in/kenneth-ayade-60bb23197/"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full bg-white/80 backdrop-blur-sm border border-gray-200/50 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-white dark:hover:bg-gray-700 transition-all duration-200 shadow-lg hover:shadow-xl"
-              whileHover={{ scale: 1.1, y: -2 }}
+              className="p-4 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-xl text-gray-600 dark:text-gray-400 hover:text-blue-600 hover:bg-blue-50 hover:border-blue-200 transition-all duration-300 shadow-lg hover:shadow-xl group"
+              whileHover={{ scale: 1.1, y: -4 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Linkedin size={24} />
+              <Linkedin size={24} className="group-hover:scale-110 transition-transform" />
+            </motion.a>
+
+            <motion.a
+              href="https://www.instagram.com/kennethayade/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-4 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-xl text-gray-600 dark:text-gray-400 hover:text-blue-600 hover:bg-blue-50 hover:border-blue-200 transition-all duration-300 shadow-lg hover:shadow-xl group"
+              whileHover={{ scale: 1.1, y: -4 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Instagram size={24} className="group-hover:scale-110 transition-transform" />
+            </motion.a>
+
+            <motion.a
+              href="https://www.facebook.com/ayadekenneth19/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-4 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-xl text-gray-600 dark:text-gray-400 hover:text-blue-600 hover:bg-blue-50 hover:border-blue-200 transition-all duration-300 shadow-lg hover:shadow-xl group"
+              whileHover={{ scale: 1.1, y: -4 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Facebook size={24} className="group-hover:scale-110 transition-transform" />
             </motion.a>
             
             <motion.a
               href="mailto:ayadekennethorland13@gmail.com"
-              className="p-3 rounded-full bg-white/80 backdrop-blur-sm border border-gray-200/50 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-white dark:hover:bg-gray-700 transition-all duration-200 shadow-lg hover:shadow-xl"
-              whileHover={{ scale: 1.1, y: -2 }}
+              className="p-4 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-xl text-gray-600 dark:text-gray-400 hover:text-blue-600 hover:bg-blue-50 hover:border-blue-200 transition-all duration-300 shadow-lg hover:shadow-xl group"
+              whileHover={{ scale: 1.1, y: -4 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Mail size={24} />
+              <Mail size={24} className="group-hover:scale-110 transition-transform" />
             </motion.a>
           </motion.div>
 
-          {/* Scroll Indicator */}
+          {/* Modern Scroll Indicator */}
           <motion.div
             variants={itemVariants}
             className="flex flex-col items-center"
           >
-            <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">Scroll to explore</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400 mb-4 font-medium">Discover More</p>
             <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ repeat: Infinity, duration: 2 }}
-              className="cursor-pointer"
+              animate={{ y: [0, 8, 0] }}
+              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+              className="cursor-pointer p-2 bg-white/50 backdrop-blur-sm rounded-full border border-gray-200 hover:bg-white/70 transition-all"
               onClick={scrollToProjects}
             >
-              <ArrowDown size={24} className="text-gray-400 dark:text-gray-500" />
+              <ArrowDown size={20} className="text-blue-600" />
             </motion.div>
           </motion.div>
         </motion.div>
       </div>
-
-      {/* Floating Elements */}
-      <motion.div
-        className="absolute top-1/4 left-10 w-4 h-4 bg-blue-400/60 rounded-full opacity-60 animate-float"
-        animate={{ 
-          y: [0, -20, 0],
-          x: [0, 10, 0]
-        }}
-        transition={{ 
-          repeat: Infinity, 
-          duration: 4,
-          ease: "easeInOut"
-        }}
-      />
-      
-      <motion.div
-        className="absolute top-1/3 right-16 w-6 h-6 bg-purple-400/60 rounded-full opacity-40 animate-float"
-        animate={{ 
-          y: [0, -30, 0],
-          x: [0, -15, 0]
-        }}
-        transition={{ 
-          repeat: Infinity, 
-          duration: 5,
-          ease: "easeInOut",
-          delay: 1
-        }}
-      />
-      
-      <motion.div
-        className="absolute bottom-1/4 left-1/4 w-3 h-3 bg-green-400/60 rounded-full opacity-50 animate-float"
-        animate={{ 
-          y: [0, -15, 0],
-          x: [0, 20, 0]
-        }}
-        transition={{ 
-          repeat: Infinity, 
-          duration: 6,
-          ease: "easeInOut",
-          delay: 2
-        }}
-      />
     </section>
   );
 };

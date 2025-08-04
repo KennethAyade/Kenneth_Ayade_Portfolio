@@ -11,7 +11,7 @@ import Footer from './components/Footer/Footer';
 function App() {
   return (
     <Router>
-      <div className="App min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50 dark:from-gray-900 dark:to-slate-900">
+      <div className="App min-h-screen bg-hero">
         <Header />
         <main>
           <Hero />
