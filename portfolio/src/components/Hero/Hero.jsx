@@ -38,20 +38,21 @@ const Hero = () => {
 
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 bg-hero">
-      {/* Modern Background Elements */}
+      {/* Enhanced Colorful Background Elements */}
       <div className="absolute inset-0 -z-10">
-        {/* Geometric shapes */}
-        <div className="absolute top-20 left-10 w-96 h-96 bg-blue-100/30 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float"></div>
-        <div className="absolute top-20 right-10 w-96 h-96 bg-blue-200/40 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute -bottom-8 left-20 w-96 h-96 bg-blue-50/50 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float" style={{ animationDelay: '4s' }}></div>
+        {/* Vibrant geometric shapes - Light mode colorful, Dark mode subtle */}
+        <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-blue-200/40 to-blue-300/30 dark:from-blue-500/10 dark:to-blue-600/15 rounded-full mix-blend-multiply filter blur-xl opacity-80 animate-float"></div>
+        <div className="absolute top-20 right-10 w-96 h-96 bg-gradient-to-l from-blue-300/50 to-blue-400/40 dark:from-blue-600/15 dark:to-blue-700/20 rounded-full mix-blend-multiply filter blur-xl opacity-80 animate-float" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute -bottom-8 left-20 w-96 h-96 bg-gradient-to-tr from-blue-100/60 to-blue-200/50 dark:from-blue-500/10 dark:to-blue-600/15 rounded-full mix-blend-multiply filter blur-xl opacity-80 animate-float" style={{ animationDelay: '4s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-gradient-to-br from-blue-400/20 to-blue-500/30 dark:from-blue-600/10 dark:to-blue-700/15 rounded-full mix-blend-multiply filter blur-2xl opacity-60 animate-float" style={{ animationDelay: '1s' }}></div>
         
-        {/* Grid pattern */}
-        <div className="absolute inset-0 bg-pattern opacity-40"></div>
+        {/* Enhanced grid pattern */}
+        <div className="absolute inset-0 bg-pattern opacity-60 dark:opacity-20"></div>
         
         {/* Floating elements */}
-        <div className="absolute top-1/4 left-16 w-8 h-8 bg-blue-500/20 rounded-lg animate-float opacity-60" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/3 right-20 w-6 h-6 bg-blue-600/30 rounded-full animate-float opacity-50" style={{ animationDelay: '3s' }}></div>
-        <div className="absolute bottom-1/3 left-1/4 w-4 h-4 bg-blue-400/40 rounded-sm animate-float opacity-70" style={{ animationDelay: '5s' }}></div>
+        <div className="absolute top-1/4 left-16 w-8 h-8 bg-blue-500/20 dark:bg-blue-500/10 rounded-lg animate-float opacity-60" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/3 right-20 w-6 h-6 bg-blue-600/30 dark:bg-blue-600/15 rounded-full animate-float opacity-50" style={{ animationDelay: '3s' }}></div>
+        <div className="absolute bottom-1/3 left-1/4 w-4 h-4 bg-blue-400/40 dark:bg-blue-400/20 rounded-sm animate-float opacity-70" style={{ animationDelay: '5s' }}></div>
       </div>
 
       <div className="section-container">
@@ -63,9 +64,9 @@ const Hero = () => {
         >
           {/* Professional Badge */}
           <motion.div variants={itemVariants} className="mb-8">
-            <div className="inline-flex items-center px-6 py-3 bg-white/80 backdrop-blur-sm border border-blue-100 rounded-full shadow-lg">
+            <div className="inline-flex items-center px-6 py-3 bg-white/80 dark:bg-black/40 backdrop-blur-sm border border-blue-100 dark:border-blue-800/50 rounded-full shadow-lg">
               <div className="w-3 h-3 bg-green-500 rounded-full mr-3 animate-pulse-blue"></div>
-              <span className="text-blue-700 font-medium text-sm">Available for new opportunities</span>
+              <span className="text-blue-700 dark:text-blue-300 font-medium text-sm">Available for new opportunities</span>
             </div>
           </motion.div>
 
@@ -158,7 +159,7 @@ const Hero = () => {
               href="https://github.com/KennethAyade"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-4 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-xl text-gray-600 dark:text-gray-400 hover:text-blue-600 hover:bg-blue-50 hover:border-blue-200 transition-all duration-300 shadow-lg hover:shadow-xl group"
+              className="p-4 bg-white/90 dark:bg-black/30 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-xl text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:border-blue-200 dark:hover:border-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl group"
               whileHover={{ scale: 1.1, y: -4 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -169,7 +170,7 @@ const Hero = () => {
               href="https://www.linkedin.com/in/kenneth-ayade-60bb23197/"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-4 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-xl text-gray-600 dark:text-gray-400 hover:text-blue-600 hover:bg-blue-50 hover:border-blue-200 transition-all duration-300 shadow-lg hover:shadow-xl group"
+              className="p-4 bg-white/90 dark:bg-black/30 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-xl text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:border-blue-200 dark:hover:border-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl group"
               whileHover={{ scale: 1.1, y: -4 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -180,7 +181,7 @@ const Hero = () => {
               href="https://www.instagram.com/kennethayade/"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-4 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-xl text-gray-600 dark:text-gray-400 hover:text-blue-600 hover:bg-blue-50 hover:border-blue-200 transition-all duration-300 shadow-lg hover:shadow-xl group"
+              className="p-4 bg-white/90 dark:bg-black/30 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-xl text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:border-blue-200 dark:hover:border-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl group"
               whileHover={{ scale: 1.1, y: -4 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -191,7 +192,7 @@ const Hero = () => {
               href="https://www.facebook.com/ayadekenneth19/"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-4 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-xl text-gray-600 dark:text-gray-400 hover:text-blue-600 hover:bg-blue-50 hover:border-blue-200 transition-all duration-300 shadow-lg hover:shadow-xl group"
+              className="p-4 bg-white/90 dark:bg-black/30 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-xl text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:border-blue-200 dark:hover:border-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl group"
               whileHover={{ scale: 1.1, y: -4 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -200,7 +201,7 @@ const Hero = () => {
             
             <motion.a
               href="mailto:ayadekennethorland13@gmail.com"
-              className="p-4 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-xl text-gray-600 dark:text-gray-400 hover:text-blue-600 hover:bg-blue-50 hover:border-blue-200 transition-all duration-300 shadow-lg hover:shadow-xl group"
+              className="p-4 bg-white/90 dark:bg-black/30 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-xl text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:border-blue-200 dark:hover:border-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl group"
               whileHover={{ scale: 1.1, y: -4 }}
               whileTap={{ scale: 0.95 }}
             >

@@ -57,7 +57,7 @@ const Header = () => {
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-xl border-b border-blue-100' 
+          ? 'bg-white/95 dark:bg-black/90 backdrop-blur-lg shadow-xl border-b border-blue-100 dark:border-gray-800' 
           : 'bg-transparent'
       }`}
       initial={{ y: -100 }}
@@ -108,7 +108,7 @@ const Header = () => {
           <div className="hidden md:flex items-center space-x-4">
             <motion.button
               onClick={toggleDarkMode}
-              className="p-3 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-gray-700 transition-all duration-300 shadow-md hover:shadow-lg"
+              className="p-3 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-gray-700 transition-all duration-300 shadow-md hover:shadow-lg"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -159,7 +159,7 @@ const Header = () => {
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="px-4 pt-4 pb-6 space-y-2 bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg rounded-2xl shadow-xl border border-blue-100/50 mt-4">
+              <div className="px-4 pt-4 pb-6 space-y-2 bg-white/95 dark:bg-black/90 backdrop-blur-lg rounded-2xl shadow-xl border border-blue-100/50 dark:border-gray-800/50 mt-4">
                 {navigation.map((item) => (
                   <motion.a
                     key={item.name}

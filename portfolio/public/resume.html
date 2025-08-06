@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kenneth Ayade - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #ffffff;
+            font-size: 12px;
+        }
+        
+        .container {
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 0.5in;
+            min-height: 11in;
+        }
+        
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #2563eb;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .name {
+            font-size: 28px;
+            font-weight: bold;
+            color: #1e40af;
+            margin-bottom: 8px;
+        }
+        
+        .title {
+            font-size: 16px;
+            color: #2563eb;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 11px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .section {
+            margin-bottom: 25px;
+        }
+        
+        .section-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #1e40af;
+            border-bottom: 2px solid #93c5fd;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .experience-item, .project-item, .education-item {
+            margin-bottom: 20px;
+        }
+        
+        .job-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #1e40af;
+        }
+        
+        .company {
+            font-size: 13px;
+            font-weight: 600;
+            color: #2563eb;
+            margin-bottom: 3px;
+        }
+        
+        .date {
+            font-size: 11px;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+        
+        .description {
+            margin-bottom: 8px;
+            text-align: justify;
+        }
+        
+        .achievements {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .achievements li {
+            position: relative;
+            padding-left: 15px;
+            margin-bottom: 3px;
+            font-size: 11px;
+        }
+        
+        .achievements li:before {
+            content: "▸";
+            color: #2563eb;
+            position: absolute;
+            left: 0;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .skill-category {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #2563eb;
+        }
+        
+        .skill-category h4 {
+            font-size: 13px;
+            font-weight: bold;
+            color: #1e40af;
+            margin-bottom: 10px;
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            font-size: 11px;
+            padding: 2px 0;
+            color: #333;
+        }
+        
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 5px;
+        }
+        
+        .project-title {
+            font-size: 13px;
+            font-weight: bold;
+            color: #1e40af;
+        }
+        
+        .project-url {
+            font-size: 10px;
+            color: #2563eb;
+            text-decoration: none;
+        }
+        
+        .project-tech {
+            font-size: 10px;
+            color: #666;
+            margin-bottom: 5px;
+            font-style: italic;
+        }
+        
+        .two-column {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+        
+        .summary {
+            background: #f1f5f9;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #2563eb;
+            margin-bottom: 25px;
+            font-size: 11px;
+            text-align: justify;
+        }
+        
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .container {
+                padding: 0.3in;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+                margin-bottom: 20px;
+            }
+            
+            .experience-item, .project-item {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="name">Kenneth Ayade</div>
+            <div class="title">Full-Stack Developer | App/Cloud Support Associate</div>
+            <div class="contact-info">
+                <div class="contact-item">📧 ayadekennethorland13@gmail.com</div>
+                <div class="contact-item">💼 linkedin.com/in/kenneth-ayade</div>
+                <div class="contact-item">🌐 GitHub: kenneth-ayade</div>
+                <div class="contact-item">📍 Cebu, Philippines</div>
+            </div>
+        </div>
+
+        <!-- Professional Summary -->
+        <div class="summary">
+            <strong>Professional Summary:</strong> Dedicated Full-Stack Developer and recent graduate from Cebu Institute of Technology University with comprehensive expertise in WordPress development, modern web technologies, and enterprise cloud solutions. Currently serving as App/Cloud Support Associate at Accenture, combining enterprise-level cloud infrastructure experience with advanced development skills. Proven track record in leading development teams and delivering robust, scalable solutions across diverse technology stacks.
+        </div>
+
+        <div class="two-column">
+            <div class="main-content">
+                <!-- Experience -->
+                <div class="section">
+                    <h3 class="section-title">Professional Experience</h3>
+                    
+                    <div class="experience-item">
+                        <div class="job-title">App/Cloud Support Associate</div>
+                        <div class="company">Accenture</div>
+                        <div class="date">2024 - Present</div>
+                        <div class="description">
+                            Providing enterprise-level application and cloud infrastructure support, ensuring optimal performance and reliability of critical business systems.
+                        </div>
+                        <ul class="achievements">
+                            <li>Supporting enterprise cloud infrastructure and applications</li>
+                            <li>Troubleshooting and resolving complex technical issues</li>
+                            <li>Collaborating with cross-functional teams on system optimization</li>
+                            <li>Maintaining 99.9% uptime for critical business applications</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="job-title">Team Leader & Junior Web Developer</div>
+                        <div class="company">Creative Solutions</div>
+                        <div class="date">2023 - 2024</div>
+                        <div class="description">
+                            Led development teams in creating custom WordPress solutions and full-stack applications, managing project timelines and ensuring code quality.
+                        </div>
+                        <ul class="achievements">
+                            <li>Led development team for multiple WordPress projects</li>
+                            <li>Developed custom themes and plugins for diverse client needs</li>
+                            <li>Managed project timelines and delivered solutions on schedule</li>
+                            <li>Implemented secure payment processing systems</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="job-title">Project Lead</div>
+                        <div class="company">Wheels On Go (Car Rental Application)</div>
+                        <div class="date">2024 - Present</div>
+                        <div class="description">
+                            Leading the development of a comprehensive car rental application, managing technical architecture and team coordination.
+                        </div>
+                        <ul class="achievements">
+                            <li>Architecting scalable car rental platform</li>
+                            <li>Managing development team and project milestones</li>
+                            <li>Implementing modern technology stack and best practices</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div class="section">
+                    <h3 class="section-title">Education</h3>
+                    <div class="education-item">
+                        <div class="job-title">Bachelor's Degree in Information Technology</div>
+                        <div class="company">Cebu Institute of Technology University (CIT-U)</div>
+                        <div class="date">2024</div>
+                        <div class="description">
+                            Graduated with comprehensive knowledge in software development, database management, and modern programming technologies.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projects -->
+                <div class="section">
+                    <h3 class="section-title">Featured Projects</h3>
+                    
+                    <div class="project-item">
+                        <div class="project-header">
+                            <div class="project-title">Blue Payment Systems</div>
+                            <a href="https://bluepaymentsystems.com" class="project-url">bluepaymentsystems.com</a>
+                        </div>
+                        <div class="project-tech">WordPress, Custom PHP, Payment Gateway APIs, Security Plugins</div>
+                        <div class="description">
+                            Comprehensive fintech platform with advanced security protocols, real-time transaction monitoring, and seamless API integrations. Achieved 99.9% uptime serving multiple businesses.
+                        </div>
+                    </div>
+
+                    <div class="project-item">
+                        <div class="project-header">
+                            <div class="project-title">Global Marketing Network</div>
+                            <a href="https://globalmktgnetwork.com" class="project-url">globalmktgnetwork.com</a>
+                        </div>
+                        <div class="project-tech">WordPress, Custom Themes, Advanced Custom Fields, Analytics Integration</div>
+                        <div class="description">
+                            Digital marketing agency website with interactive elements and analytics dashboards. Increased client engagement by 40% through optimized conversion funnels.
+                        </div>
+                    </div>
+
+                    <div class="project-item">
+                        <div class="project-header">
+                            <div class="project-title">Wearcon E-commerce Platform</div>
+                            <a href="https://wearcon.com" class="project-url">wearcon.com</a>
+                        </div>
+                        <div class="project-tech">WordPress, WooCommerce, Custom PHP, Payment Integration</div>
+                        <div class="description">
+                            Modern fashion e-commerce platform with advanced product filtering and personalized recommendations. Achieved 98% mobile performance score and 35% conversion rate increase.
+                        </div>
+                    </div>
+
+                    <div class="project-item">
+                        <div class="project-header">
+                            <div class="project-title">Trusted Restorer</div>
+                            <a href="https://trustedrestorer.com" class="project-url">trustedrestorer.com</a>
+                        </div>
+                        <div class="project-tech">WordPress, Custom Gallery Plugins, Form Handling, Mobile Optimization</div>
+                        <div class="description">
+                            Service-focused restoration website with before/after galleries and booking system. Increased service bookings by 60% through enhanced online credibility.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <!-- Technical Skills -->
+                <div class="section">
+                    <h3 class="section-title">Technical Skills</h3>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4>Frontend</h4>
+                            <ul class="skill-list">
+                                <li>React.js</li>
+                                <li>TypeScript</li>
+                                <li>JavaScript</li>
+                                <li>HTML5/CSS3</li>
+                                <li>Tailwind CSS</li>
+                                <li>WordPress</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h4>Backend</h4>
+                            <ul class="skill-list">
+                                <li>Java Spring Boot</li>
+                                <li>.NET C#</li>
+                                <li>Python</li>
+                                <li>COBOL</li>
+                                <li>REST APIs</li>
+                                <li>Custom PHP</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h4>Tools & Cloud</h4>
+                            <ul class="skill-list">
+                                <li>Cloud Support</li>
+                                <li>Git/GitHub</li>
+                                <li>Application Support</li>
+                                <li>Database Design</li>
+                                <li>JWT Authentication</li>
+                                <li>Agile/Scrum</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WordPress Expertise -->
+                <div class="section">
+                    <h3 class="section-title">WordPress Specialization</h3>
+                    <ul class="achievements">
+                        <li>Custom Theme Development</li>
+                        <li>Plugin Development</li>
+                        <li>WooCommerce Integration</li>
+                        <li>Advanced Custom Fields</li>
+                        <li>Payment Gateway APIs</li>
+                        <li>Security Hardening</li>
+                        <li>Performance Optimization</li>
+                        <li>SEO Optimization</li>
+                        <li>Mobile Responsiveness</li>
+                        <li>Database Optimization</li>
+                    </ul>
+                </div>
+
+                <!-- Achievements -->
+                <div class="section">
+                    <h3 class="section-title">Key Achievements</h3>
+                    <ul class="achievements">
+                        <li>5+ successful WordPress projects delivered in 2024</li>
+                        <li>99.9% uptime across all deployed applications</li>
+                        <li>40% increase in client engagement (Global Marketing)</li>
+                        <li>35% conversion rate improvement (Wearcon)</li>
+                        <li>60% increase in service bookings (Trusted Restorer)</li>
+                        <li>Led cross-functional development teams</li>
+                        <li>Enterprise cloud support experience at Accenture</li>
+                    </ul>
+                </div>
+
+                <!-- Certifications -->
+                <div class="section">
+                    <h3 class="section-title">Professional Focus</h3>
+                    <ul class="achievements">
+                        <li>Enterprise Cloud Infrastructure</li>
+                        <li>WordPress Development</li>
+                        <li>Full-Stack Development</li>
+                        <li>Team Leadership</li>
+                        <li>Project Management</li>
+                        <li>Client Relations</li>
+                        <li>Agile Methodologies</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

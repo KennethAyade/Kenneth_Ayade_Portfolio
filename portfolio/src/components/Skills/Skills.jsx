@@ -81,7 +81,7 @@ const Skills = () => {
           {skill.level}%
         </span>
       </div>
-      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3 shadow-inner">
+                    <div className="w-full bg-gray-200 dark:bg-gray-800 rounded-full h-3 shadow-inner">
         <motion.div
           className={`h-3 rounded-full ${skill.color} shadow-lg relative overflow-hidden`}
           initial={{ width: 0 }}
@@ -106,11 +106,10 @@ const Skills = () => {
         >
           {/* Section Header */}
           <motion.div variants={itemVariants} className="section-header">
-            <h2 className="section-title">
+            <h2 className="section-title-blue section-title-accent">
               Technical Skills & Leadership
             </h2>
-            <div className="w-24 h-1.5 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-700 mx-auto mb-8 rounded-full"></div>
-            <p className="section-subtitle">
+            <p className="section-subtitle-blue">
               A comprehensive overview of my technical expertise spanning fullstack development, 
               from WordPress solutions to enterprise-level applications with modern technologies. 
               Currently working as an App/Cloud Support Associate at Accenture, bringing enterprise 
@@ -124,9 +123,9 @@ const Skills = () => {
               <motion.div
                 key={category.title}
                 variants={itemVariants}
-                className="card-elevated p-8 hover-lift hover-glow group"
+                className="card-skill p-8 hover-lift hover-glow group"
               >
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center group-hover:text-blue-600 transition-colors">
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                   {category.title}
                 </h3>
                 <div className="space-y-6">
@@ -151,7 +150,7 @@ const Skills = () => {
               <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
                 Continuous Growth & Learning
               </h3>
-              <p className="text-lg text-gray-600 dark:text-gray-400 mb-10 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-lg text-gray-600 dark:text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed">
                 As a recent CIT-U graduate currently working as an App/Cloud Support Associate at Accenture, 
                 I'm committed to expanding my technical expertise across the full development stack. My current 
                 role provides hands-on experience with enterprise-level cloud infrastructure and application 

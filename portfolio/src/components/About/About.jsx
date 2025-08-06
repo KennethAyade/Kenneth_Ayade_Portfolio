@@ -62,11 +62,10 @@ const About = () => {
         >
           {/* Section Header */}
           <motion.div variants={itemVariants} className="section-header">
-            <h2 className="section-title">
+            <h2 className="section-title-blue section-title-accent">
               About Me
             </h2>
-            <div className="w-24 h-1.5 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-700 mx-auto mb-8 rounded-full"></div>
-            <p className="section-subtitle">
+            <p className="section-subtitle-blue">
               Dedicated IT professional and recent graduate from Cebu Institute of Technology University 
               with hands-on experience in fullstack web development and WordPress solutions. Currently working 
               as an App/Cloud Support Associate at Accenture, combining enterprise cloud expertise with 
@@ -81,11 +80,11 @@ const About = () => {
                 <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-gradient">
                   Building Digital Solutions End-to-End
                 </h3>
-                <div className="space-y-6 text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
+                <div className="space-y-6 text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
                   <p>
                     As a dedicated fullstack developer and recent graduate from Cebu Institute of Technology 
                     University, I bring a comprehensive skill set spanning both frontend and backend technologies. 
-                    Currently working at <span className="text-blue-600 dark:text-blue-400 font-semibold">Accenture as an App/Cloud Support Associate</span>, 
+                    Currently working at <span className="text-blue-600 dark:text-blue-300 font-semibold">Accenture as an App/Cloud Support Associate</span>, 
                     I combine cloud infrastructure expertise with my development background to deliver robust solutions.
                   </p>
                   <p>
@@ -114,7 +113,7 @@ const About = () => {
                     whileHover={{ y: -5 }}
                   >
                     <div className="text-3xl font-bold text-blue-600 mb-2">25+</div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400 font-medium">Projects Completed</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-300 font-medium">Projects Completed</div>
                   </motion.div>
                   <motion.div 
                     className="text-center p-6 card-blue hover:scale-105 transition-all duration-300"
@@ -157,7 +156,7 @@ const About = () => {
                         <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 transition-colors">
                           {highlight.title}
                         </h4>
-                        <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                           {highlight.description}
                         </p>
                       </div>

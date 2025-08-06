@@ -74,7 +74,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="section-padding bg-hero">
+    <section id="contact" className="section-padding bg-section-blue">
       <div className="section-container">
         <motion.div
           ref={ref}
@@ -84,11 +84,10 @@ const Contact = () => {
         >
           {/* Section Header */}
           <motion.div variants={itemVariants} className="section-header">
-            <h2 className="section-title">
+            <h2 className="section-title-blue section-title-accent">
               Get In Touch
             </h2>
-            <div className="w-24 h-1.5 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-700 mx-auto mb-8 rounded-full"></div>
-            <p className="section-subtitle">
+            <p className="section-subtitle-blue">
               Ready to bring your ideas to life? Let's discuss your project and create 
               something amazing together.
             </p>
@@ -101,9 +100,9 @@ const Contact = () => {
                 <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-gradient">
                   Let's Build Something Together
                 </h3>
-                <p className="text-lg text-gray-600 dark:text-gray-400 mb-10 leading-relaxed">
+                <p className="text-lg text-gray-600 dark:text-gray-300 mb-10 leading-relaxed">
                   I'm always interested in new opportunities and exciting projects. Currently working as an 
-                  <span className="text-blue-600 dark:text-blue-400 font-semibold"> App/Cloud Support Associate at Accenture</span>, 
+                  <span className="text-blue-600 dark:text-blue-300 font-semibold"> App/Cloud Support Associate at Accenture</span>, 
                   I bring enterprise-level experience to every project. Whether you need WordPress development, 
                   fullstack solutions, cloud infrastructure support, or technical leadership for your team, 
                   I'm here to help bring your vision to life.
@@ -130,12 +129,12 @@ const Contact = () => {
                         {info.href ? (
                           <a 
                             href={info.href}
-                            className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium"
+                            className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium"
                           >
                             {info.content}
                           </a>
                         ) : (
-                          <p className="text-gray-600 dark:text-gray-400 font-medium">{info.content}</p>
+                          <p className="text-gray-600 dark:text-gray-300 font-medium">{info.content}</p>
                         )}
                       </div>
                     </motion.div>

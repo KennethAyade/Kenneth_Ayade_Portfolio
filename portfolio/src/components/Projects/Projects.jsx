@@ -52,7 +52,7 @@ const Projects = () => {
     <motion.div
       layout
       variants={itemVariants}
-      className="group card-elevated overflow-hidden hover-lift hover-glow flex flex-col"
+      className="group card-project overflow-hidden hover-lift hover-glow flex flex-col"
       whileHover={{ y: -8 }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -99,17 +99,17 @@ const Projects = () => {
 
       <div className="p-8 flex flex-col flex-1">
         <div className="flex items-center justify-between mb-4">
-          <span className="inline-block px-4 py-2 text-xs font-bold text-blue-700 bg-blue-100 rounded-full">
+          <span className="inline-block px-4 py-2 text-xs font-bold text-blue-700 dark:text-blue-300 bg-blue-100 dark:bg-blue-900/30 rounded-full">
             {project.category}
           </span>
-          <span className="text-xs text-gray-500 dark:text-gray-400 font-medium bg-gray-100 px-3 py-1 rounded-full">{project.year}</span>
+          <span className="text-xs text-gray-500 dark:text-gray-300 font-medium bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full">{project.year}</span>
         </div>
         
-        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-blue-600 transition-colors">
+        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
           {project.title}
         </h3>
         
-        <p className="text-gray-600 dark:text-gray-400 mb-6 line-clamp-3 leading-relaxed flex-1">
+        <p className="text-gray-600 dark:text-gray-300 mb-6 line-clamp-3 leading-relaxed flex-1">
           {project.description}
         </p>
 
@@ -158,7 +158,7 @@ const Projects = () => {
   );
 
   return (
-    <section id="projects" className="section-padding bg-hero">
+    <section id="projects" className="section-padding bg-section-blue">
       <div className="section-container">
         <motion.div
           ref={ref}
@@ -168,11 +168,10 @@ const Projects = () => {
         >
           {/* Section Header */}
           <motion.div variants={itemVariants} className="section-header">
-            <h2 className="section-title">
+            <h2 className="section-title-blue section-title-accent">
               WordPress Development Portfolio
             </h2>
-            <div className="w-24 h-1.5 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-700 mx-auto mb-8 rounded-full"></div>
-            <p className="section-subtitle mb-12">
+            <p className="section-subtitle-blue mb-12">
               A showcase of professional WordPress websites built with custom themes, advanced functionality, 
               and optimized performance. Each project demonstrates expertise in WordPress development and client-focused solutions.
             </p>
@@ -212,8 +211,8 @@ const Projects = () => {
             className="text-center mt-20"
           >
             <div className="card-blue p-12 max-w-4xl mx-auto">
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">Ready to Start Your Project?</h3>
-              <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+              <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Ready to Start Your Project?</h3>
+              <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
                 Interested in working together? Let's discuss your project and create 
                 something amazing with WordPress or any modern technology stack!
               </p>
@@ -244,7 +243,7 @@ const Projects = () => {
             onClick={closeProjectModal}
           >
             <motion.div
-              className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+                              className="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border dark:border-gray-800"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
@@ -319,7 +318,7 @@ const Projects = () => {
                       {selectedProject.features.map((feature, index) => (
                         <li key={index} className="flex items-start space-x-3">
                           <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                          <span className="text-gray-600 dark:text-gray-400">{feature}</span>
+                          <span className="text-gray-600 dark:text-gray-300">{feature}</span>
                         </li>
                       ))}
                     </ul>
@@ -331,7 +330,7 @@ const Projects = () => {
                   {selectedProject.challenges && (
                     <div>
                       <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Challenges</h3>
-                      <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                      <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                         {selectedProject.challenges}
                       </p>
                     </div>
@@ -340,7 +339,7 @@ const Projects = () => {
                   {selectedProject.results && (
                     <div>
                       <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Results</h3>
-                      <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                      <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                         {selectedProject.results}
                       </p>
                     </div>
@@ -348,7 +347,7 @@ const Projects = () => {
                 </div>
 
                 {/* Project Status */}
-                <div className="mt-8 p-6 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
+                <div className="mt-8 p-6 bg-blue-50 dark:bg-blue-900/30 rounded-xl border dark:border-blue-800/30">
                   <div className="flex items-center justify-between">
                     <div>
                       <h4 className="font-semibold text-gray-900 dark:text-white">Project Status</h4>
